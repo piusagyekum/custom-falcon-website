@@ -2,14 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap");
 
-* {
-  font-family: "Open Sans", sans-serif;
+*,
+*::before,
+::after {
+  font-family: "Montserrat", sans-serif;
+  user-select: none;
 }
 
 .nav {
-  @apply py-2 lg:px-4 hover:border-b-2  transition-all duration-75 ease-in-out font-bold inline-block h-8;
+  @apply lg:px-4 hover:opacity-80 font-bold inline-block h-12 leading-[3rem];
+}
+
+.nav.active {
+  @apply border-b-2;
 }
 
 .wrapper {
@@ -19,32 +26,28 @@
 
 @keyframes drop {
   0% {
-    transform: translateY(-100px);
+    transform:matrix(1, 0, 0, 1, 0, 0)
   }
+  
   100% {
+    transform:matrix(0, 0, 0, 0, 0, 0)
+  }
+}
+@keyframes rise {
+  0% {
+    opacity: 0;
+    transform: translateY(150px);
+  }
+ 
+  100% {
+    opacity: 1;
+
     transform: translateY(0px);
   }
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .wrapper div {
-  animation: drop 0.5s ease-in-out;
-}
-
-.spin-test {
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  border: 5px solid rgb(54, 54, 54);
-  border-top: 5px solid rgb(98, 0, 255);
+  animation: drop 2s cubic-bezier(0.5, 0, 0, 1) 0s;
 }
 
 .home-services-item:hover img {
@@ -56,14 +59,97 @@ header.show {
   opacity: 1;
 }
 
-.home-section-title {
-  @apply text-center  relative pb-2 text-4xl font-bold mb-7 after:content-[''] after:bg-cyan-500 after:w-[100px] after:h-[3px] after:absolute after:bottom-0 after:block after:left-[calc(50%_-_50px)] after:rounded-md capitalize;
+.section-title {
+  @apply text-center  relative pb-2 text-4xl font-bold mb-5 after:content-[''] after:bg-slate-500 after:w-[100px] after:h-[3px] after:absolute after:bottom-0 after:block after:left-[calc(50%_-_50px)] after:rounded-md capitalize;
 }
 
-.side-nav{
-  @apply text-white block leading-loose mb-6 hover:text-opacity-60 mt-7
+.side-nav {
+  @apply text-white block leading-loose mb-6 hover:text-opacity-60 mt-7;
 }
 
-#sideNav.display{
-   transform: translateX(0px);
+#sideNav.display {
+  transform: translateX(0px);
+}
+.contact-card {
+  @apply flex-1;
+}
+.contact-card:not(:last-child) {
+  @apply border-b-2 md:border-b-0 md:border-r-2 border-slate-500 p-3;
+}
+.contact-card-header {
+  @apply flex items-center gap-2;
+}
+.contact-card-header h2,
+.contact-card > p:last-child {
+  @apply font-bold text-lg;
+}
+
+.form-label {
+  @apply block mt-3 capitalize;
+}
+
+.form-label::after {
+  content: "*";
+  @apply text-red-700;
+}
+.form-input {
+  @apply outline-none border h-10 mt-3  px-3 w-full;
+}
+
+.error{
+  @apply text-red-700 text-xs
+}
+
+#management .management-card {
+  @apply sm:w-[40%] md:w-[30%] aspect-[1/1.2] lg:flex-1 bg-white p-3 hover:shadow-md overflow-hidden;
+}
+#management .management-card:last-child {
+  @apply md:mr-auto md:ml-2 lg:mr-0;
+}
+#management .management-card img {
+  @apply inline-block w-full h-[70%] object-cover object-top;
+}
+#management .management-card h4 {
+  @apply text-center text-lg font-bold py-3;
+}
+#management .management-card p {
+  @apply text-center text-gray-700;
+}
+
+#what-we-offer .card {
+  @apply relative p-5 pt-20 shadow-lg  rounded-xl bg-white border flex-1;
+}
+#what-we-offer .card h5 {
+  @apply font-semibold text-lg mb-3;
+}
+
+#what-we-offer .card .icon {
+  @apply absolute -top-7  text-white  bg-slate-500 p-5 rounded-xl;
+}
+#what-we-offer .card .icon > * {
+  @apply text-4xl;
+}
+
+/* @keyframes change-image {
+  0% {
+    background-image: url("../public/images/wrapper.jpg");
+  }
+  99% {
+    opacity: 0.5;
+  }
+  100% {
+    background-image: url("../public/images/offer.jpg");
+    opacity: 1;
+  }
+} */
+
+#slides {
+  @apply relative h-[50vh];
+}
+
+#slides .slide {
+  @apply absolute inset-0 opacity-0;
+}
+#slides .slide.active{
+  @apply opacity-100;
 }

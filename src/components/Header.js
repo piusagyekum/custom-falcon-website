@@ -6,8 +6,21 @@ const Header = () => {
   const header = useRef()
   const sideNav = useRef()
 
+  useEffect(() => {
+    const sideLinks = sideNav.current.querySelectorAll("a")
+
+    sideLinks.forEach(link => {
+      link.addEventListener("click", closeNav)
+    })
+
+    return () => {
+      sideLinks.forEach(link => {
+        link.removeEventListener("click", closeNav)
+      })
+    }
+  }, [])
+
   const openNav = () => {
-    console.log("open nav run")
     sideNav.current.classList.add("display")
     document.body.style.overflow = "hidden"
   }
@@ -31,31 +44,29 @@ const Header = () => {
     )
 
     headerObserver.observe(header.current)
-
-    console.log(document.body)
   }, [])
   return (
     <>
       {/* normal header */}
       <header
         ref={header}
-        className="flex justify-around items-center h-14 text-white"
+        className="flex justify-around items-center h-14 text-white  absolute w-full"
       >
         <div className="flex items-center gap-2">
           <img src="/images/invLogoOnly.png" className="h-10" alt="logo" />
           <h1 className="text-2xl font-bold">Falcon Technologies</h1>
         </div>
         <nav className="hidden md:flex gap-2">
-          <NavLink to="" className="nav border-white">
+          <NavLink to="/" className="nav border-white">
             HOME
           </NavLink>
-          <NavLink to="" className="nav border-white">
+          <NavLink to="/CasesAndClients" className="nav border-white">
             CASES AND CLIENTS
           </NavLink>
-          <NavLink to="" className="nav border-white">
+          <NavLink to="/AboutUs" className="nav border-white">
             ABOUT US
           </NavLink>
-          <NavLink to="" className="nav border-white">
+          <NavLink to="/contact" className="nav border-white">
             CONTACT US
           </NavLink>
         </nav>
@@ -78,23 +89,23 @@ const Header = () => {
       {/* fixed header */}
       <header
         ref={fixedHeader}
-        className=" z-40 flex justify-around items-center h-[100px] text-black fixed bg-gray-100 top-0 left-0 w-full  -translate-y-96 transition-all duration-500 opacity-0"
+        className=" z-40 flex justify-around items-center h-[100px] fixed bg-black text-white top-0 left-0 w-full  -translate-y-96 transition-all duration-500 opacity-0 shadow-lg"
       >
         <div className="flex items-center gap-2">
-          <img src="/images/logoOnly.png" className="h-10" alt="logo" />
+          <img src="/images/invLogoOnly.png" className="h-10" alt="logo" />
           <h1 className="text-2xl font-bold">Falcon Technologies</h1>
         </div>
-        <nav className="hidden md:flex gap-2">
-          <NavLink to="" className="nav border-black">
+        <nav className="hidden md:flex gap-2 h-12">
+          <NavLink to="" className="nav border-white">
             HOME
           </NavLink>
-          <NavLink to="" className="nav border-black">
+          <NavLink to="/CasesAndClients" className="nav border-white">
             CASES AND CLIENTS
           </NavLink>
-          <NavLink to="" className="nav border-black">
+          <NavLink to="/AboutUs" className="nav border-white">
             ABOUT US
           </NavLink>
-          <NavLink to="" className="nav border-black">
+          <NavLink to="/contact" className="nav border-white">
             CONTACT US
           </NavLink>
         </nav>
@@ -138,13 +149,13 @@ const Header = () => {
         <NavLink to="" className="side-nav">
           HOME
         </NavLink>
-        <NavLink to="" className="side-nav">
+        <NavLink to="/CasesAndClients" className="side-nav">
           CASES AND CLIENTS
         </NavLink>
-        <NavLink to="" className="side-nav">
+        <NavLink to="/AboutUs" className="side-nav">
           ABOUT US
         </NavLink>
-        <NavLink to="" className="side-nav">
+        <NavLink to="/contact" className="side-nav">
           CONTACT US
         </NavLink>
       </nav>

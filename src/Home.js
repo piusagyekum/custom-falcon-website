@@ -1,18 +1,23 @@
 import React from "react"
 import { useEffect } from "react"
 import { useRef } from "react"
+import Wrapper from "./components/Wrapper"
 
 const Home = () => {
   return (
     <div className="">
-      <div className="wrapper relative -top-[56px]  h-screen -z-10 bg-blend-overlay">
-        <div className="absolute top-1/2 left-8 font-black text-white text-2xl md:text-4xl">
-          Unleashing the Power <br /> of Code Transform your Vision <br />
-          reality
-        </div>
-      </div>
+      {/* wrapper */}
+      <Wrapper
+        backgroundImage="url('./images/wrapper.jpg')"
+        info={
+          <div>
+            Unleashing the Power <br /> of Code Transform your Vision <br />
+            reality
+          </div>
+        }
+      />
       <section className="home-services  px-[5%] ">
-        <h3 className="home-section-title">our services</h3>
+        <h3 className="section-title">our services</h3>
         <div className="flex flex-col md:flex-row gap-y-8 gap-x-4 lg:gap-x-8 flex-wrap lg:flex-nowrap justify-between">
           <div className="home-services-item relative rounded-lg h-[200px] overflow-hidden border hover:after:bg-black hover:after:content-[''] hover:after:absolute hover:after:bottom-0 hover:after:h-[5px] hover:after:w-full hover:after:z-50  before:w-full before:h-full  before:content-[''] before:opacity-50  before:absolute before:bg-black before:-z-40 md:w-[47%]">
             <img
@@ -56,18 +61,39 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section style={{ background: "url('./images/services.jpg')" }} className="bg-fixed bg-cover bg-no-">
-        <h3 className="home-section-title my-10">Our Working process</h3>
-        <p className="text-sm text-gray-700 text-center">
+      <section
+        style={{
+          background:
+            "rgba(5, 5, 5, 0.9) url('./images/services.jpg') repeat-x fixed top left / cover",
+        }}
+        className=" bg-blend-multiply pt-3 pb-10 mt-16"
+      >
+        <h3 className="section-title my-10 text-white">Our Working process</h3>
+        <p className="text-sm text-white text-center pb-5">
           Our software development process relies on incremental development
         </p>
         <div className=" grid sm:grid-cols-2 md:grid-cols-3 gap-12 px-4 justify-around">
-          <div className="h-[300px] border relative rounded-lg  bg-gray-100">
-            <img
-              src="./images/logoOnly.png"
-              alt=""
-              className="h-20 w-20 object-contain object-center  "
-            />
+          <div className=" border relative rounded-lg  bg-gray-100 p-3 pb-20">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="#64748b"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z"
+              />
+            </svg>
+
             <h3 className="text-2xl text-center italic mb-8">
               Requirement Analysis
             </h3>
@@ -76,53 +102,78 @@ const Home = () => {
               possibility, and collect data as part of the feasibility study
             </p>
 
-            <button className="rounded-lg border p-2 absolute bottom-4 font-medium left-[calc(50%_-_37px)]  hover:text-black hover:bg-slate-300 ">
+            <button className="rounded-lg border p-2 absolute bottom-4 font-medium left-[50%] -translate-x-1/2 bg-slate-500  hover:text-black hover:bg-cyan-600 ">
+              Read More
+            </button>
+          </div>
+          <div className=" border relative rounded-lg  bg-gray-100 p-3 pb-20">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="#64748b"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z"
+              />
+            </svg>
+
+            <h3 className="text-2xl text-center italic mb-8">
+              Resource Planning{" "}
+            </h3>
+            <p className="text-center">
+              The development of Customer Software architecture will require
+              several experts in the field of software development
+            </p>
+
+            <button className="rounded-lg border p-2 absolute bottom-4 font-medium left-[50%] -translate-x-1/2 bg-slate-500  hover:text-black hover:bg-cyan-600 ">
+              Read More
+            </button>
+          </div>
+          <div className=" border relative rounded-lg  bg-gray-100 p-3 pb-20">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="#64748b"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z"
+              />
+            </svg>
+
+            <h3 className="text-2xl text-center italic mb-8">
+              Design and Prototyping{" "}
+            </h3>
+            <p className="text-center">
+              We start with a prototype to align with specifications, remove
+              design drawbacks, make changes based on customer requirements.
+            </p>
+
+            <button className="rounded-lg border p-2 absolute bottom-4 font-medium left-[50%] -translate-x-1/2 bg-slate-500  hover:text-black hover:bg-slate-400 ">
               Read More
             </button>
           </div>{" "}
-          <div className="h-[300px] ">
-            <img
-              src="./images/logoOnly.png"
-              alt=""
-              className="h-[40%] block object-contain object-center w-full border-4"
-            />
-            <div className="part2 p-3 h-[60%] text-center text-white bg-gray-950">
-              <h3 className="text-white">Requirement Analysis</h3>
-              <p>
-                We review the Customer proposition, validate the projects
-                possibility, and collect data as part of the feasibility study
-              </p>
-
-              <button className="invRead">READ MORE</button>
-            </div>
-          </div>
-          <div className="h-[300px] ">
-            <img
-              src="./images/logoOnly.png"
-              alt=""
-              className="h-[40%] block object-contain object-center w-full border-4"
-            />
-            <div className="part2 p-3 h-[60%] text-center text-white bg-gray-950">
-              <h3 className="text-white">Requirement Analysis</h3>
-              <p>
-                We review the Customer proposition, validate the projects
-                possibility, and collect data as part of the feasibility study
-              </p>
-
-              <button className="invRead">READ MORE</button>
-            </div>
-          </div>
         </div>
       </section>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur aperiam
-      cum vel impedit beatae illo. Nostrum est vel, voluptatem porro earum atque
-      quaerat rem facere modi quam soluta explicabo corporis magni, praesentium
-      enim iusto ad consequatur harum minus suscipit ut at? Excepturi voluptatum
-      accusantium, numquam hic, perferendis officia non, veritatis error
-      molestiae vitae aliquam mollitia temporibus. Quibusdam, suscipit ea!
-      Pariatur perspiciatis vero assumenda aut accusamus illo itaque
-      necessitatibus, quos blanditiis rem nemo deserunt voluptatem numquam
-      voluptas obcaecati deleniti, excepturi placeat.
     </div>
   )
 }
