@@ -11,10 +11,10 @@ function ShortWrapper({info,background}) {
       className=" relative h-96 -z-10  mb-10 overflow-hidden bg-blend-overlay"
     >
       <div className="  text-white font-semibold ">
-        <h2 className="absolute top-1/2 left-[50%] -translate-x-1/2 capitalize text-4xl tracking-widest">
+        <h2 className="absolute top-1/2 left-[50%] -translate-x-1/2 capitalize text-4xl tracking-widest whitespace-nowrap">
           {info}
         </h2>
-        <p className="absolute top-[62%] left-[50%] -translate-x-1/2 capitalize flex items-center tracking-wider">
+        <p className="absolute top-[62%] left-[50%] -translate-x-1/2 capitalize flex items-center tracking-wider whitespace-nowrap">
           <Link to="/">Home</Link> <HiChevronRight className="inline-block font-black" />
           {info}
         </p>

@@ -6,10 +6,14 @@
 
 *,
 *::before,
-::after {
+*::after {
   font-family: "Montserrat", sans-serif;
   user-select: none;
 }
+
+
+
+
 
 .nav {
   @apply lg:px-4 hover:opacity-80 font-bold inline-block h-12 leading-[3rem];
@@ -26,11 +30,11 @@
 
 @keyframes drop {
   0% {
-    transform:matrix(1, 0, 0, 1, 0, 0)
+    transform: matrix(1, 0, 0, 1, 0, 0);
   }
-  
+
   100% {
-    transform:matrix(0, 0, 0, 0, 0, 0)
+    transform: matrix(0, 0, 0, 0, 0, 0);
   }
 }
 @keyframes rise {
@@ -38,7 +42,7 @@
     opacity: 0;
     transform: translateY(150px);
   }
- 
+
   100% {
     opacity: 1;
 
@@ -96,8 +100,8 @@ header.show {
   @apply outline-none border h-10 mt-3  px-3 w-full;
 }
 
-.error{
-  @apply text-red-700 text-xs
+.error {
+  @apply text-red-700 text-xs;
 }
 
 #management .management-card {
@@ -150,6 +154,74 @@ header.show {
 #slides .slide {
   @apply absolute inset-0 opacity-0;
 }
-#slides .slide.active{
+#slides .slide.active {
   @apply opacity-100;
 }
+
+
+/* testimonial carousel */
+.test-carousel{
+  overflow: hidden;
+
+}
+
+.test-slider{
+  width:300%;
+  /* transform: (-33.33%); */
+  transition: transform 0.5s ease;
+
+}
+
+.test-carousel-item{
+  width:33.33%;
+  padding-inline:4rem;
+  text-align: justify;
+  
+
+}
+
+.test-carousel .indicators{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.test-carousel .indicators .active{
+  background-color:#64748b;
+
+}
+
+.test-carousel .indicators > *{
+  width: 30px;
+  height: 6px;
+  border: 1px solid #64748b;
+  border-radius: 1em;
+}
+
+/* end of testimonial carousel */
+
+
+
+/* TEST CAROUSEL */
+/* .slider > *:first-child{
+  margin-left: calc(10% / 3);
+}
+.slider > *:last-child{
+  margin-right: calc(10% / 3);
+} */
+
+.slider{
+  scroll-snap-type: x mandatory;
+}
+
+.slider  li {
+  scroll-snap-align: start;
+}
+
+.slider.dragging{
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+  cursor:grab;
+}
+
+

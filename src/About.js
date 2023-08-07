@@ -13,7 +13,7 @@ function About() {
       <section className="container m-auto flex flex-col lg:flex-row items-center p-10 md:px-36 lg:p-5 gap-7">
         <div className="flex-1 leading-7">
           <h3 className="section-title">Who We Are</h3>
-          <p className="text-center">
+          <p className="text-justify">
             Falcon Technologies is an innovative and creative software
             development company in the market to bring the best of experience in
             Web and app development. Our mission is to bridge the gap between
